@@ -15,7 +15,7 @@ As a user, I want to:
 
 - [ ] Query at least two APIs using fetch
 - [ ] Dynamic content generated with JS
-- [ ] A clearly defined user journey, documented in your readme
+- [x] A clearly defined user journey, documented in your readme
 - [ ] A responsive, mobile-first design
 - [ ] Ensure your app is accessible to as many different users as possible
    
@@ -24,3 +24,11 @@ As a user, I want to:
 [i1]: https://github.com/fac25/week2-agencyProject-Patrick-Sumithra/issues/1
 
 ## Crime and Location
+
+### User journey
+
+- The user inputs a postcode
+- That prompts a map to pop up
+- The map shows the crime rate within a particular radius of that postcode
+- The user can click to see a more detailed breakdown of which types of crimes
+- The user can filter so only certain crimes count
