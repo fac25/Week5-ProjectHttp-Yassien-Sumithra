@@ -6,9 +6,9 @@ Task: Build an app that queries at least two APIs and uses the results to update
 
 As a user, I want to:
 
-- [ ] See an interesting mashup of different data. (Our mashup is of crime and postcodes) [#1][i1]
-- [ ] Input information to change the displayed result [#2][i2]
-- [ ] View the app on all of my devices [#3][i3]
+- [ ] See an interesting mashup of different data. (Our mashup is of crime and postcodes) 
+- [ ] Input information to change the displayed result 
+- [ ] View the app on all of my devices 
 
 
 #### Acceptance Criteria
@@ -20,8 +20,7 @@ As a user, I want to:
 - [ ] Ensure your app is accessible to as many different users as possible
    
 
-<!-- Issue links -->
-[i1]: https://github.com/fac25/week2-agencyProject-Patrick-Sumithra/issues/1
+
 
 ## Crime and Location
 
