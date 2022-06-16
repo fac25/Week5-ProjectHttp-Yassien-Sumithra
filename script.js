@@ -17,7 +17,7 @@ function startup() {
 //
 //=========================================================================================================
 
-const myForm = document.querySelector("form");
+
 
 //initial values for the map coordinates
 let userLat = 51.4769;
@@ -58,9 +58,15 @@ function getPostcode(event){
     );
 }
 
-myForm.addEventListener("submit", getPostcode);
-
 function initMap() {
+
+
+
+
+
+
+
+    
 
     // The location of the user input by lat & long
     const usersChosenLocationCoordinates = {lat: userLat, lng: userLong}
