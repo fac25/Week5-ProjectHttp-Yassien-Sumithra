@@ -1,10 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Postcode Checker</title>
+        <title>Postcode Crime Checker</title>
+
+        <!-- To help wih seo-->
+        <meta name="description" content="What is the crime in my area?">
+        <meta name="keywords" content="Crime, Postcode">
+        <meta name="author" content="Sumithra, Yassien">
+
+        <!-- link to leaflet's css-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+
+        <!-- Link to script for the map -->
+        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
 
         <!-- Link to google fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,11 +30,12 @@
         
         <!-- Link to stylesheet -->
         <link rel="stylesheet" type="text/css" href="style.css">
+
     </head>
     <body>
         <header class="header">
             <div id="logo">
-                <h1>Postcode Checker</h1>
+                <h1>Postcode Crime Checker</h1>
             </div>
             <nav class="header-nav" id="navbar">
                 <a href="#">Home</a>
@@ -33,7 +48,7 @@
                 <div class="form-postcode-search">
                     <div class="form-postcode-search-header">
                         <h2 class="main-header">Check the latest information on your local area</h2>
-                        <h3 class="main-subheader">PostcodeChecker has information on over two million postcodes, towns and cities across the UK </h3>
+                        <h3 class="main-subheader">Postcode Crime Checker has information on over two million postcodes, towns and cities across the UK </h3>
                     </div>
                     <div class="form-postcode-search-input">
                         <input type="text" id="postcode" name="postcode" onfocus="this.value=''" placeholder="Enter postcode e.g.ST2 7BQ">
@@ -42,9 +57,15 @@
                 </div>
             </form>
         </div>
+
+
+        <!-- container for the map -->
+        <div id="map"></div>
         
 
         <!-- Link to script -->
         <script src="script.js"></script>
+
+        
     </body>
 </html>
