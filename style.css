@@ -18,6 +18,35 @@ body, html{
 a{
     text-decoration: none;
 }
+/*=======================================================================================*/
+/*                                      Header                                           */
+/*=======================================================================================*/
+
+.header{
+    display: flex;
+    width: 100%;
+    min-height: 75px; 
+    margin-top: 10px;     
+}
+
+.header-nav{
+    margin-left: 20px;
+}
+
+.header-nav a{
+    display: inline-block;
+    justify-content: space-between;
+    padding: 20px;
+    font-weight: bold;
+    color: #706c6c;    
+}
+
+.header-nav a:hover{
+    cursor: pointer;
+    opacity: .5;
+    transition: .9s;
+    border: 3px solid #2f3f5e;
+}
 
 /*=======================================================================================*/
 /*                          Form with  background image                                  */
@@ -73,4 +102,18 @@ a{
     text-transform: uppercase;  
     color: white;
     background-color: #078cc4;
+}
+
+/*=======================================================================================*/
+/*                                   Media queries                                       */
+/*=======================================================================================*/
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media screen and (max-width: 600px) {
+ 
+    .header-nav a{
+        padding: 10px;
+    }
+  
+
 }
