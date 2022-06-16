@@ -1,10 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Postcode Checker</title>
+        <title>Postcode Crime Checker</title>
+
+        <!-- To help wih seo-->
+        <meta name="description" content="What is the crime in my area?">
+        <meta name="keywords" content="Crime, Postcode">
+        <meta name="author" content="Sumithra, Yassien">
+
+        <!-- Link to script for the map -->
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
         <!-- Link to google fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,11 +23,12 @@
         
         <!-- Link to stylesheet -->
         <link rel="stylesheet" type="text/css" href="style.css">
+
     </head>
     <body>
         <header class="header">
             <div id="logo">
-                <h1>Postcode Checker</h1>
+                <h1>Postcode Crime Checker</h1>
             </div>
             <nav class="header-nav" id="navbar">
                 <a href="#">Home</a>
@@ -33,7 +41,7 @@
                 <div class="form-postcode-search">
                     <div class="form-postcode-search-header">
                         <h2 class="main-header">Check the latest information on your local area</h2>
-                        <h3 class="main-subheader">PostcodeChecker has information on over two million postcodes, towns and cities across the UK </h3>
+                        <h3 class="main-subheader">Postcode Crime Checker has information on over two million postcodes, towns and cities across the UK </h3>
                     </div>
                     <div class="form-postcode-search-input">
                         <input type="text" id="postcode" name="postcode" onfocus="this.value=''" placeholder="Enter postcode e.g.ST2 7BQ">
@@ -42,9 +50,19 @@
                 </div>
             </form>
         </div>
+
+
+        <!-- container for the map -->
+        <div id="map"></div>
         
 
         <!-- Link to script -->
         <script src="script.js"></script>
+
+        <!-- Link to second script for the map -->
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLdEIJkdiMWUzKS6h-1_3yTOTuIyBtN1Q&callback=initMap&v=weekly"
+        defer
+      ></script>
     </body>
 </html>
