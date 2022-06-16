@@ -18,10 +18,8 @@ function startup() {
 //=========================================================================================================
 
 
-
-//initial values for the map coordinates
-let userLat = 51.4769;
-let userLong = 0.0005;
+let userLat;
+let userLong;
 
 function getPostcode(event){
 
@@ -50,7 +48,14 @@ function getPostcode(event){
                 console.log(body.result.latitude);
                 console.log(body.result.longitude);
                 userLat = body.result.latitude;
-                userLong = body.result.longitude;                
+                userLong = body.result.longitude;
+                
+                
+                var map = L.map('map').setView([userLat, userLong], 13.53);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '© OpenStreetMap'
+                }).addTo(map);
             }
     )
     .catch(
@@ -58,15 +63,9 @@ function getPostcode(event){
     );
 }
 
+/*
 function initMap() {
 
-
-
-
-
-
-
-    
 
     // The location of the user input by lat & long
     const usersChosenLocationCoordinates = {lat: userLat, lng: userLong}
@@ -80,13 +79,13 @@ function initMap() {
         position: usersChosenLocationCoordinates,
         map: map,
       });
-
+*/
 
       /*a coloured circle of a 1 mile radius around the user's chosen location.
       right now it's red but later we can add some if statements to make it amber or green
       based on the level of crime
       */
-
+/*
       const cityCircle = new google.maps.Circle({
         strokeColor: "#FF0000",
         strokeOpacity: 0.8,
@@ -101,3 +100,4 @@ function initMap() {
 }
 
 window.initMap = initMap;
+*/
