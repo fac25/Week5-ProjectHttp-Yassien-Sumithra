@@ -51,10 +51,19 @@ function getPostcode(event){
                 userLong = body.result.longitude;
                 
                 
-                var map = L.map('map').setView([userLat, userLong], 13.53);
+                var map = L.map('map').setView([userLat, userLong], 13);
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     maxZoom: 19,
                     attribution: '© OpenStreetMap'
+                }).addTo(map);
+
+                var marker = L.marker([userLat, userLong]).addTo(map);
+
+                var circle = L.circle([userLat, userLong], {
+                    color: 'red',
+                    fillColor: '#ff0000',
+                    fillOpacity: 0,
+                    radius: 1609.34
                 }).addTo(map);
             }
     )
