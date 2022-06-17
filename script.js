@@ -50,26 +50,38 @@ function getPostcode(event){
                 userLat = body.result.latitude;
                 userLong = body.result.longitude;
                 
-                
-                var map = L.map('map').setView([userLat, userLong], 13);
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 19,
-                    attribution: '© OpenStreetMap'
-                }).addTo(map);
+                getMap();
 
-                var marker = L.marker([userLat, userLong]).addTo(map);
-
-                var circle = L.circle([userLat, userLong], {
-                    color: 'red',
-                    fillColor: '#ff0000',
-                    fillOpacity: 0,
-                    radius: 1609.34
-                }).addTo(map);
             }
     )
     .catch(
         (error) => {console.log(error);}
     );
+}
+
+//=========================================================================================================
+// getMap()
+// getMap() takes latitude and longitude as input and displays the map
+//
+//=========================================================================================================
+
+function getMap(){
+
+    var map = L.map('map').setView([userLat, userLong], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    var marker = L.marker([userLat, userLong]).addTo(map);
+
+    var circle = L.circle([userLat, userLong], {
+        color: 'red',
+        fillColor: '#ff0000',
+        fillOpacity: 0,
+        radius: 1609.34
+    }).addTo(map);
+
 }
 
 /*
@@ -110,29 +122,3 @@ function initMap() {
 
 window.initMap = initMap;
 */
-
-//=========================================================================================================
-// displayTab()
-// 
-//
-//=========================================================================================================
-
-function displayTab(e, tabName) {
-    
-    //Hide All Tabs
-    document.querySelector("#summary-tab-content").style.display = "none";
-    document.querySelector("#crime-tab-content").style.display = "none";
-    
-    
-    //Show the Selected Tab
-    document.querySelector(`#${tabName}`).style.display="block";  
-
-    // Highlight the selected tab
-    let tablinks = document.querySelectorAll(".tablinks");
-
-    tablinks.forEach((tablink)=>{
-        tablink.classList.remove('active');
-    });
-
-    e.currentTarget.className += " active";
-}
