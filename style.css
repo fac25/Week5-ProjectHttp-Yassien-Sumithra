@@ -197,9 +197,43 @@ a{
 
 
 /*=======================================================================================*/
-/*        Make the data fields invisible until the user has submitted a postcode         */
+/*                                  Style the table                                      */
 /*=======================================================================================*/
 
-  #headlineCrimeFigure {
-    display: none; 
- }
+
+
+ table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 0.15rem solid #dddddd;
+    text-align: left;
+    padding: 0.5rem;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+
+ /*=======================================================================================*/
+/*        Change color of the filter button it is visible and give it a margin      */
+/*=======================================================================================*/
+
+#filterButton {
+    background-color: var(--picton-blue);
+    margin-top: 0.5rem;
+}
+
+
+/*Re-usable stack class */
+.stack-xl > * + * {
+    margin-top: 3rem;
+}
+
+.stack-sm > * + * {
+    margin-top: 0.5rem;
+  }

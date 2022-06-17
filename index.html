@@ -38,9 +38,9 @@
                 <h1>Postcode Crime Checker</h1>
             </div>
             <nav class="header-nav" id="navbar">
-                <a href="#">Home</a>
-                <a href="#">Blog</a>
-                <a href="#">Contact</a>
+                <a href="https://postcodes.io/docs" target="_blank">Postcode API Docs</a>
+                <a href="https://data.police.uk/docs/method/crime-street/" target="_blank">Police API Docs</a>
+                <a href="#Caveats">Caveats</a>
             </nav>
         </header>
         <div class="bg-img">
@@ -65,15 +65,150 @@
                 
             </div>
             <div class="tab-content">
-                <div id="summary-tab-content">
+                <div id="summary-tab-content" class="stack-xl">
+
+                    <!-- container for the map -->
+                    <div id="map"></div>
+
                     <div class="grid">
                         <div>
-                          <p id="headlineCrimeFigure">In total, <span id="crimeTotal"></span> crimes were comitted within 1 mile of this postcode in <span id="chosenMonth"></span> of this year.</p>
+                            <form class="userChosenCategories" class="stack-sm">
+                                <fieldset class="stack-sm">
+                                    <legend>Select the categories of crime you would like to filter out:</legend>
+
+                                    <label for="allCrime"> All crime</label>
+                                    <input type="checkbox" id="allCrime" name="crimeCategory" value="all-crime"><br>
+
+                                    <label for="antiSocialBehaviour"> Anti-social behaviour</label>
+                                    <input type="checkbox" id="antiSocialBehaviour" name="crimeCategory" value="anti-social-behaviour"><br>
+
+                                    <label for="bicycleTheft"> Bicycle theft</label>
+                                    <input type="checkbox" id="bicycleTheft" name="crimeCategory" value="bicycle-theft"><br>
+
+                                    <label for="burglary"> Burglary</label>
+                                    <input type="checkbox" id="burglary" name="crimeCategory" value="burglary"><br>
+
+                                    <label for="criminalDamageArson"> Criminal damage and arson</label>
+                                    <input type="checkbox" id="criminalDamageArson" name="crimeCategory" value="criminal-damage-arson"><br>
+
+                                    <label for="drugs"> Drugs</label>
+                                    <input type="checkbox" id="drugs" name="crimeCategory" value="drugs"><br>
+
+                                    <label for="otherTheft"> Other theft</label>
+                                    <input type="checkbox" id="otherTheft" name="crimeCategory" value="other-theft"><br>
+
+                                    <label for="possessionOfWeapons"> Possession of weapons</label>
+                                    <input type="checkbox" id="possessionOfWeapons" name="crimeCategory" value="possession-of-weapons"><br>
+
+                                    <label for="publicOrder"> Public order</label>
+                                    <input type="checkbox" id="publicOrder" name="crimeCategory" value="public-order"><br>
+
+                                    <label for="robbery"> Robbery</label>
+                                    <input type="checkbox" id="robbery" name="crimeCategory" value="robbery"><br>
+
+                                    <label for="shoplifting"> Shoplifting</label>
+                                    <input type="checkbox" id="shoplifting" name="crimeCategory" value="shoplifting"><br>
+
+                                    <label for="theftFromThePerson"> Theft from the person</label>
+                                    <input type="checkbox" id="theftFromThePerson" name="crimeCategory" value="theft-from-the-person"><br>
+
+                                    <label for="vehicleCrime"> Vehicle crime</label>
+                                    <input type="checkbox" id="vehicleCrime" name="crimeCategory" value="vehicle-crime"><br>
+
+                                    <label for="violentCrime"> Violence and sexual offences</label>
+                                    <input type="checkbox" id="violentCrime" name="crimeCategory" value="violent-crime"><br>
+
+                                    <label for="otherCrime"> Other crime</label>
+                                    <input type="checkbox" id="otherCrime" name="crimeCategory" value="other-crime">
+                                    
+                                </fieldset>
+                                <button type="submit" id="filterButton"> Filter</button>
+                            </form>
                         </div>
                         
-                        <!-- container for the map -->
-                        <div id="map"></div>
+                        
+
+                        <!-- table to display the data -->
+                        <table id="table1">
+                            <tr>
+                                <th>Category</th>
+                                <th>Total</th>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                            <tr>
+                                <td class="cat"></td>
+                                <td class="catValue"></td>
+                            </tr>
+                        </table>
                     </div>
+
+                    <div id="Caveats">
+                        <p><ol>
+                            <li>The crime results returned are totals not a rate.
+                                Remember, not all areas (within a 1 mile radius of the postcode searched) will have equal population.
+                            </li>
+                            <li>Since only the British Transport Police provide data for Scotland, 
+                                crime levels for Scottish postcodes may appear much lower than they really are</li>
+                            <li>This data relates to the latest month for which records are available.
+                                That is <span id="chosenMonth"></span> of this year.</li>
+                        </ol></p>
+                    </div>
+
                 </div>
                 
             </div>
