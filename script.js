@@ -21,6 +21,10 @@ function startup() {
 let userLat;
 let userLong;
 
+let allCrimeTotal;
+
+const months = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
+
 function getPostcode(event){
 
     event.preventDefault();
@@ -50,6 +54,8 @@ function getPostcode(event){
                 userLat = body.result.latitude;
                 userLong = body.result.longitude;
                 
+                getCrimeTotal();
+                getPoliceApiDate();
                 getMap();
 
             }
@@ -67,6 +73,8 @@ function getPostcode(event){
 
 function getMap(){
 
+    
+
     var map = L.map('map').setView([userLat, userLong], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -82,43 +90,94 @@ function getMap(){
         radius: 1609.34
     }).addTo(map);
 
-}
-
-/*
-function initMap() {
-
-
-    // The location of the user input by lat & long
-    const usersChosenLocationCoordinates = {lat: userLat, lng: userLong}
-    // The map, centered at the user's chosen location
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 13.53,
-        center: usersChosenLocationCoordinates,
-      });
-      // The marker, positioned at the user's chosen location
-      const marker = new google.maps.Marker({
-        position: usersChosenLocationCoordinates,
-        map: map,
-      });
-*/
-
-      /*a coloured circle of a 1 mile radius around the user's chosen location.
-      right now it's red but later we can add some if statements to make it amber or green
-      based on the level of crime
-      */
-/*
-      const cityCircle = new google.maps.Circle({
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-        map,
-        center: usersChosenLocationCoordinates,
-        radius: 1609.34,
-      });  
+   // marker.bindPopup().openPopup();
 
 }
 
-window.initMap = initMap;
-*/
+//=========================================================================================================
+// getCrimes()
+// getCrimes() takes latitude and longitude as input and retrieves relevant crime data
+//
+//=========================================================================================================
+
+function getCrimeTotal() {
+
+    let policeURL = `https://data.police.uk/api/crimes-street/all-crime?lat=${userLat}&lng=${userLong}`;
+
+    const policePromise = fetch(policeURL);
+
+    policePromise  
+    .then(
+        (response) => {
+            if (response.ok == false) {console.log(`Error, response status is ${response.status}`);}
+            else {return response.json();}
+        }
+    )
+    .then(
+        (body) => {
+            console.log(body.length);
+            
+            allCrimeTotal = body.length;
+            document.querySelector("#crimeTotal").innerHTML = allCrimeTotal;
+            document.querySelector("#headlineCrimeFigure").style.display = "block";
+        }
+    )
+    .catch(
+        (error) => {console.log(error);}
+    );
+
+}
+
+//=========================================================================================================
+// getPoliceApiDate()
+// getPoliceApiDate() retrieves the month for which the stats apply 
+//
+//=========================================================================================================
+
+function getPoliceApiDate() {
+    let policeDateURL = `https://data.police.uk/api/crime-last-updated`;
+    
+    let dateForWhichPoliceApiSearchResultsApply;
+    
+    const policeDatePromise = fetch(policeDateURL);
+    
+    
+    policeDatePromise
+    
+    .then(
+        (response) => {
+            if (response.ok == false) {console.log(`Error, response status is ${response.status}`);}
+            else {return response.json();}
+        }
+    )
+    .then(
+        (body) => {
+            console.log(body);
+            console.log(body.date);
+            console.log(body.date[5]);
+            console.log(body.date[6]);
+            dateForWhichPoliceApiSearchResultsApply = `${body.date[5]}${body.date[6]}`
+            console.log(dateForWhichPoliceApiSearchResultsApply);
+
+            if (dateForWhichPoliceApiSearchResultsApply == 01) {document.querySelector("#chosenMonth").innerHTML = months[0];}
+            else if (dateForWhichPoliceApiSearchResultsApply == 02) {document.querySelector("#chosenMonth").innerHTML = months[1];}
+            else if (dateForWhichPoliceApiSearchResultsApply == 03) {document.querySelector("#chosenMonth").innerHTML = months[2];}
+            else if (dateForWhichPoliceApiSearchResultsApply == 04) {document.querySelector("#chosenMonth").innerHTML = months[3];}
+            else if (dateForWhichPoliceApiSearchResultsApply == 05) {document.querySelector("#chosenMonth").innerHTML = months[4];}
+            else if (dateForWhichPoliceApiSearchResultsApply == 06) {document.querySelector("#chosenMonth").innerHTML = months[5];}
+            else if (dateForWhichPoliceApiSearchResultsApply == 07) {document.querySelector("#chosenMonth").innerHTML = months[6];}
+            else if (dateForWhichPoliceApiSearchResultsApply == 08) {document.querySelector("#chosenMonth").innerHTML = months[7];}
+            else if (dateForWhichPoliceApiSearchResultsApply == 09) {document.querySelector("#chosenMonth").innerHTML = months[8];}
+            else if (dateForWhichPoliceApiSearchResultsApply == 10) {document.querySelector("#chosenMonth").innerHTML = months[9];}
+            else if (dateForWhichPoliceApiSearchResultsApply == 11) {document.querySelector("#chosenMonth").innerHTML = months[10];}
+            else {document.querySelector("#chosenMonth").innerHTML = months[11];}
+        } 
+    )
+    .catch(
+        (error) => {console.log(error);}
+    );
+}
+
+
+    
+    

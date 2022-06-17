@@ -47,8 +47,8 @@
             <form class="form-postcode">
                 <div class="form-postcode-search main-container">
                     <div class="form-postcode-search-header">
-                        <h2 class="main-header">Check the latest information on your local area</h2>
-                        <h3 class="main-subheader">Postcode Crime Checker has information on over two million postcodes, towns and cities across the UK </h3>
+                        <h2 class="main-header">Check the latest crime data in your local area</h2>
+                        <h3 class="main-subheader">Postcode Crime Checker has information on over two million postcodes, towns and cities across the UK</h3>
                     </div>
                     <div class="form-postcode-search-input">
                         <input type="text" id="postcode" name="postcode" onfocus="this.value=''" placeholder="Enter postcode e.g.ST2 7BQ">
@@ -61,17 +61,26 @@
         <!-- Tabs -->
         <div class="tab main-container">
             <div class="tab-header">
-                <button id="summary-tab" class="tablinks" onclick="displayTab(event,'summary-tab-content')">Summary </button>
-                <button id="crime-tab" class="tablinks" onclick="displayTab(event,'crime-tab-content')">Crime </button>
+                <button id="summary-tab" class="tablinks" onclick="displayTab(event,'summary-tab-content')">Crime Summary </button>
+                
             </div>
             <div class="tab-content">
-                <div id="summary-tab-content">This is summary</div>
-                <div id="crime-tab-content">This is crime</div>
+                <div id="summary-tab-content">
+                    <div class="grid">
+                        <div>
+                          <p id="headlineCrimeFigure">In total, <span id="crimeTotal"></span> crimes were comitted within 1 mile of this postcode in <span id="chosenMonth"></span> of this year.</p>
+                        </div>
+                        
+                        <!-- container for the map -->
+                        <div id="map"></div>
+                    </div>
+                </div>
+                
             </div>
         </div>
 
-        <!-- container for the map -->
-        <div id="map"></div>
+        
+        
         
 
         <!-- Link to script -->
