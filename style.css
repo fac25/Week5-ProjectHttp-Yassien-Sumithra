@@ -2,6 +2,16 @@
 /*                                              global                                   */
 /*=======================================================================================*/
 
+:root {
+    /* Colour variables */
+    --alabaster:#fafafa;
+    --rhino:#2f3f5e;
+    --dove-gray: #706c6c;
+    --lochmara: #078cc4;
+    --picton-blue:#3fbaef;
+    --white: #ffffff;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -11,12 +21,16 @@
 body, html{    
     font-family: 'Bree Serif', serif;
     font-size: 1rem;
-    color: #2f3f5e;
-    background-color: white;
+    color: var(--rhino);
+    background-color: var(--alabaster);
 }
 
 a{
     text-decoration: none;
+}
+
+.main-container{
+    max-width: 900px;
 }
 /*=======================================================================================*/
 /*                                      Header                                           */
@@ -38,14 +52,14 @@ a{
     justify-content: space-between;
     padding: 20px;
     font-weight: bold;
-    color: #706c6c;    
+    color: var(--dove-gray);    
 }
 
 .header-nav a:hover{
     cursor: pointer;
     opacity: .5;
     transition: .9s;
-    border: 3px solid #2f3f5e;
+    border: 3px solid var(--rhino);
 }
 
 /*=======================================================================================*/
@@ -65,7 +79,6 @@ a{
 /* Add styles to the form container */
 .form-postcode-search {
     position: absolute;
-    max-width: 900px;
     left: 0; 
     right: 0; 
     margin-left: auto; 
@@ -81,14 +94,14 @@ a{
     font-weight: 300;
     margin-top: 20px;
     margin-bottom: 10px;
-    color: white;
+    color: var(--white);
 }
 
 .main-subheader{
     font-size: .95rem;
     font-weight: 100;
     margin: 0 0 15px 0;
-    color: white;
+    color: var(--white);
 }
 
 .form-postcode-search-input input{
@@ -100,9 +113,56 @@ a{
     padding: 10px;
     width: 100px;
     text-transform: uppercase;  
-    color: white;
-    background-color: #078cc4;
+    color: var(--white);
+    background-color: var(--lochmara);
 }
+
+/*=======================================================================================*/
+/*                                   Tabs                                                */
+/*=======================================================================================*/
+
+.tab{
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.tab-header{
+    background-color: var(--lochmara);
+}
+
+.tab button{
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    font-size: 1.1rem;
+    background-color: inherit;
+    color: var(--white);
+    font-weight: bold;
+}
+
+.tab button:hover{
+    background-color: var(--picton-blue);
+}
+
+.tab button.active {
+    background-color: var(--white);
+    color: var(--lochmara);
+}
+
+.tab-content{
+    margin-top: 20px;
+    padding: 10px;
+}
+  
+#summary-tab-content {
+   display: block; 
+}
+  
+#crime-tab-content {
+   display: none; 
+}
+  
+  
 
 /*=======================================================================================*/
 /*                                   Media queries                                       */
