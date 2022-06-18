@@ -40,7 +40,6 @@
             <nav class="header-nav" id="navbar">
                 <a href="https://postcodes.io/docs" target="_blank">Postcode API Docs</a>
                 <a href="https://data.police.uk/docs/method/crime-street/" target="_blank">Police API Docs</a>
-                <a href="#Caveats">Caveats</a>
             </nav>
         </header>
         <div class="bg-img">
@@ -89,10 +88,10 @@
 
                         
                         <div class="grid">
-                            <div>
+                            <section id="categorySelection">
                                 <form class="userChosenCategories" class="stack-sm">
                                     <fieldset class="stack-sm">
-                                        <legend>Select the categories of crime you would like to filter out:</legend>
+                                        <legend>Select the crime categories you would like to filter out:</legend>
 
                                         <label for="allCrime"> All crime</label>
                                         <input type="checkbox" id="allCrime" name="crimeCategory" value="all-crime"><br>
@@ -142,12 +141,11 @@
                                     </fieldset>
                                     <button type="submit" id="filterButton"> Filter</button>
                                 </form>
-                            </div>
-                            
-                            
+                            </section>
 
-                            <!-- table to display the data -->
-                            <table id="table1">
+                            <section id="crimeDataDisplayedInTable">
+                              <!-- table to display the data -->
+                              <table id="table1">
                                 <tr>
                                     <th>Category</th>
                                     <th>Total</th>
@@ -212,20 +210,23 @@
                                     <td class="cat"></td>
                                     <td class="catValue"></td>
                                 </tr>
-                            </table>
+                              </table>
+                            </section>
                         </div>
 
-                        <div id="Caveats">
-                            <p><ol>
-                                <li>The crime results returned are totals not a rate.
-                                    Remember, not all areas (within a 1 mile radius of the postcode searched) will have equal population.
-                                </li>
-                                <li>Since only the British Transport Police provide data for Scotland, 
+                        <section id="Caveats" class="centerY width-xl">
+                            <h2>Caveats</h2>
+                            <p>
+                                <ol>
+                                    <li>The crime results returned are totals not a rate.
+                                    Remember, not all areas (within a 1 mile radius of the postcode searched) will have equal population.</li>
+                                    <li>Since only the British Transport Police provide data for Scotland, 
                                     crime levels for Scottish postcodes may appear much lower than they really are</li>
-                                <li>This data relates to the latest month for which records are available.
+                                    <li>This data relates to the latest month for which records are available.
                                     That is <span id="chosenMonth"></span> of this year.</li>
-                            </ol></p>
-                        </div>
+                                </ol>
+                            </p>
+                        </section>
 
                     </div>
                     
