@@ -811,32 +811,6 @@ function hideFilteredCategories(value, index) {
 
 }
 
-//=========================================================================================================
-// displayTab()
-// 
-//
-//=========================================================================================================
-
-function displayTab(e, tabName) {
-
-    //Hide All Tabs
-    document.querySelector("#summary-tab-content").style.display = "none";
-    document.querySelector("#crime-tab-content").style.display = "none";
-
-
-    //Show the Selected Tab
-    document.querySelector(`#${tabName}`).style.display="block";  
-
-    // Highlight the selected tab
-    let tablinks = document.querySelectorAll(".tablinks");
-
-    tablinks.forEach((tablink)=>{
-        tablink.classList.remove('active');
-    });
-
-    e.currentTarget.className += " active";
-}
-
 /*
 function initMap() {
 
