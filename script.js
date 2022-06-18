@@ -80,8 +80,15 @@ function getPostcode(event){
                 userLat = body.result.latitude;
                 userLong = body.result.longitude;
                 
-                getMap();
+                // display output contianer
+                getOutputContainer();
 
+                // Populate Summary tab
+                getMap();
+                getSummary(body);
+                getNeighbour(postcode);
+
+                // Populate Crime tab
                 getPoliceApiDate();
                 
                 getAllCrime();
@@ -163,6 +170,89 @@ function displayTab(e, tabName) {
     });
 
     e.currentTarget.className += " active";
+}
+
+//=========================================================================================================
+// getOutputContainer()
+// 
+//
+//=========================================================================================================
+
+function getOutputContainer(){
+    document.querySelector(".output").style.display = "block";
+}
+
+//=========================================================================================================
+// getSummary()
+// 
+//
+//=========================================================================================================
+
+function getSummary(data){
+    
+    let summaryTable = document.querySelector("#summary-table");
+    let tbody = summaryTable.querySelector("tbody");
+
+    appendRow(tbody, "Local Authority", data.result.admin_district);
+    appendRow(tbody, "Ward", data.result.admin_ward);
+    appendRow(tbody, "Constituency", data.result.parliamentary_constituency);
+    appendRow(tbody, "Region", data.result.region);
+    appendRow(tbody, "Country", data.result.country);
+
+}
+
+//=========================================================================================================
+// appendRow()
+// 
+//
+//=========================================================================================================
+
+function appendRow(a_tbody, a_dataElem1, a_dataElem2){
+
+    const rowElement = document.createElement("tr");
+    const dataElem1 = document.createElement("td"); 
+    const dataElem2 = document.createElement("td");
+
+    dataElem1.innerHTML =  a_dataElem1;
+    dataElem2.innerHTML = a_dataElem2;
+
+    rowElement.appendChild(dataElem1);
+    rowElement.appendChild(dataElem2);
+
+    a_tbody.appendChild(rowElement);
+}
+
+//=========================================================================================================
+// getNeighbour()
+// 
+//
+//=========================================================================================================
+
+function getNeighbour(a_postcode){
+
+    let neighbourUrl = `https://api.postcodes.io/postcodes/${a_postcode}/nearest`;
+
+    fetch(neighbourUrl)
+
+    .then((resp)=>{
+        
+        return resp.json();
+    })
+    .then((data)=>{
+        console.log(data);
+        console.log(data.result.length);
+        let neighbourTable = document.querySelector("#neighbour-table");
+        let tbody = neighbourTable.querySelector("tbody");
+
+        const resultArr = data.result;
+    
+        for(let i=0; i< data.result.length; i++)
+        {
+            appendRow(tbody, resultArr[i].admin_district, resultArr[i].postcode);
+        }
+
+    })
+
 }
 
 //=========================================================================================================

@@ -4,12 +4,14 @@
 
 :root {
     /* Colour variables */
-    --alabaster:#fafafa;
+    --alabaster:#EFEFEF;
     --rhino:#2f3f5e;
     --dove-gray: #706c6c;
     --lochmara: #078cc4;
     --picton-blue:#3fbaef;
     --white: #ffffff;
+    --alto:#dbdbdb;
+    --dull-white: #fafafa;
 }
 
 *{
@@ -22,7 +24,7 @@ body, html{
     font-family: 'Bree Serif', serif;
     font-size: 1rem;
     color: var(--rhino);
-    background-color: var(--alabaster);
+    background-color: var(--dull-white);
 }
 
 a{
@@ -55,19 +57,19 @@ a{
 /* Style the table  */
 
 table {
-    font-family: arial, sans-serif;
+    /* font-family: arial, sans-serif; */
     border-collapse: collapse;
     width: 100%;
 }
-  
+
 td, th {
-    border: 0.15rem solid #dddddd;
+    border-top: 1px solid  var(--alto);
     text-align: left;
     padding: 0.5rem;
-}
-  
+} 
+
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: var(--alabaster);
 }
 
 /*=======================================================================================*/
@@ -158,6 +160,10 @@ tr:nth-child(even) {
 /*=======================================================================================*/
 /*                                   Tabs                                                */
 /*=======================================================================================*/
+
+.output{
+    display: none;
+}
 
 .tab{
     margin: 0 auto;
