@@ -68,7 +68,7 @@ a{
 
 .bg-img {
     background-image: url("Images/img_form_background.jpg");
-    min-height: 380px;
+    min-height: 20rem;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
@@ -155,13 +155,14 @@ a{
 }
   
 #summary-tab-content {
-   display: block; 
-}
-  
-#crime-tab-content {
-   display: none; 
-}
-  
+    display: block; 
+ }
+   
+ #crime-tab-content {
+    display: none; 
+ }
+ 
+
   
 
 /*=======================================================================================*/
@@ -183,8 +184,60 @@ a{
 /*                   Set the size of the div element that contains the map               */
 /*=======================================================================================*/
 #map {
-    height: 400px;
-    /* The height is 400 pixels */
+    height: 19rem;
     width: 100%;
-    /* The width is the width of the web page */
+  }
+
+
+/*=======================================================================================*/
+/*                   Grid for the map and summary data (reusable elsewhere too)          */
+/*=======================================================================================*/
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1rem;
+  }
+
+
+/*=======================================================================================*/
+/*                                  Style the table                                      */
+/*=======================================================================================*/
+
+
+
+ table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 0.15rem solid #dddddd;
+    text-align: left;
+    padding: 0.5rem;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+
+ /*=======================================================================================*/
+/*        Change color of the filter button it is visible and give it a margin      */
+/*=======================================================================================*/
+
+#filterButton {
+    background-color: var(--picton-blue);
+    margin-top: 0.5rem;
+}
+
+
+/*Re-usable stack class */
+.stack-xl > * + * {
+    margin-top: 3rem;
+}
+
+.stack-sm > * + * {
+    margin-top: 0.5rem;
   }
