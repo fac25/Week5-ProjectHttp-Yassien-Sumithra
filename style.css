@@ -32,6 +32,44 @@ a{
 .main-container{
     max-width: 900px;
 }
+
+
+/*Re-usable stack class */
+
+.stack-xl > * + * {
+    margin-top: 3rem;
+}
+
+.stack-sm > * + * {
+    margin-top: 0.5rem;
+}
+
+/* Grid for the map and summary data (reusable elsewhere too) */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1rem;
+}
+
+/* Style the table  */
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+    border: 0.15rem solid #dddddd;
+    text-align: left;
+    padding: 0.5rem;
+}
+  
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
 /*=======================================================================================*/
 /*                                      Header                                           */
 /*=======================================================================================*/
@@ -153,17 +191,36 @@ a{
     margin-top: 20px;
     padding: 10px;
 }
-  
+
+/*=======================================================================================*/
+/*                            Summary Tab                                                */
+/*=======================================================================================*/
+
 #summary-tab-content {
     display: block; 
- }
-   
+}
+
+/* Set the size of the div element that contains the map      */
+
+#map {
+    height: 19rem;
+    width: 100%;
+}
+
+/*=======================================================================================*/
+/*                            Crime Tab                                                  */
+/*=======================================================================================*/
+
  #crime-tab-content {
     display: none; 
- }
- 
+}
 
-  
+/* Change color of the filter button it is visible and give it a margin */
+
+#filterButton {
+    background-color: var(--picton-blue);
+    margin-top: 0.5rem;
+}
 
 /*=======================================================================================*/
 /*                                   Media queries                                       */
@@ -178,66 +235,3 @@ a{
   
 
 }
-
-
-/*=======================================================================================*/
-/*                   Set the size of the div element that contains the map               */
-/*=======================================================================================*/
-#map {
-    height: 19rem;
-    width: 100%;
-  }
-
-
-/*=======================================================================================*/
-/*                   Grid for the map and summary data (reusable elsewhere too)          */
-/*=======================================================================================*/
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    gap: 1rem;
-  }
-
-
-/*=======================================================================================*/
-/*                                  Style the table                                      */
-/*=======================================================================================*/
-
-
-
- table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 0.15rem solid #dddddd;
-    text-align: left;
-    padding: 0.5rem;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-
-
- /*=======================================================================================*/
-/*        Change color of the filter button it is visible and give it a margin      */
-/*=======================================================================================*/
-
-#filterButton {
-    background-color: var(--picton-blue);
-    margin-top: 0.5rem;
-}
-
-
-/*Re-usable stack class */
-.stack-xl > * + * {
-    margin-top: 3rem;
-}
-
-.stack-sm > * + * {
-    margin-top: 0.5rem;
-  }
