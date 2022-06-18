@@ -155,8 +155,12 @@ a{
 }
   
 #summary-tab-content {
-   display: block; 
-}
+    display: block; 
+ }
+   
+ #crime-tab-content {
+    display: none; 
+ }
  
 
   

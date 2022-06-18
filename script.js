@@ -138,6 +138,33 @@ function getMap(){
 
 }
 
+
+//=========================================================================================================
+// displayTab()
+// 
+//
+//=========================================================================================================
+
+function displayTab(e, tabName) {
+
+    //Hide All Tabs
+    document.querySelector("#summary-tab-content").style.display = "none";
+    document.querySelector("#crime-tab-content").style.display = "none";
+
+
+    //Show the Selected Tab
+    document.querySelector(`#${tabName}`).style.display="block";  
+
+    // Highlight the selected tab
+    let tablinks = document.querySelectorAll(".tablinks");
+
+    tablinks.forEach((tablink)=>{
+        tablink.classList.remove('active');
+    });
+
+    e.currentTarget.className += " active";
+}
+
 //=========================================================================================================
 // getAllCrime()
 // getAllCrime() takes latitude and longitude as input and retrieves relevant crime data

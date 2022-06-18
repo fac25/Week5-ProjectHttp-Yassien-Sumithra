@@ -61,15 +61,20 @@
         <!-- Tabs -->
         <div class="tab main-container">
             <div class="tab-header">
-                <button id="summary-tab" class="tablinks" onclick="displayTab(event,'summary-tab-content')">Crime Summary </button>
+                <button id="summary-tab" class="tablinks" onclick="displayTab(event,'summary-tab-content')">Summary </button>
+                <button id="crime-tab" class="tablinks" onclick="displayTab(event,'crime-tab-content')">Crime </button>
                 
             </div>
             <div class="tab-content">
-                <div id="summary-tab-content" class="stack-xl">
-
+                <div id="summary-tab-content">This is summary
                     <!-- container for the map -->
                     <div id="map"></div>
 
+                </div>
+
+                <div id="crime-tab-content" class="stack-xl">
+
+                    
                     <div class="grid">
                         <div>
                             <form class="userChosenCategories" class="stack-sm">
