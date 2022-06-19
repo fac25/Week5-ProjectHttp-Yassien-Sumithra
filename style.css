@@ -135,9 +135,9 @@ tr:nth-child(even) {
     right: 0; 
     margin-left: auto; 
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 2rem;
     text-align: center;
-    padding: 50px 30px 40px 30px;
+    padding: 40px 30px 40px 30px;
     background-color: #000000cc;
 }
 
@@ -166,7 +166,7 @@ tr:nth-child(even) {
     width: 100px;
     text-transform: uppercase;  
     color: var(--white);
-    background-color: var(--lochmara);
+    background-color: var(--picton-blue);
 }
 
 /*=======================================================================================*/
@@ -247,6 +247,7 @@ fieldset {
 }
 
 /* Make the legend bigger*/
+
 legend {
     font-size: 1.12rem;
 }
