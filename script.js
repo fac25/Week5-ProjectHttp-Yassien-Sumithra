@@ -107,7 +107,6 @@ function getPostcode(event){
                 getViolentCrime();
                 getOtherCrime();
 
-                
 
             }
     )
@@ -263,7 +262,7 @@ function getNeighbour(a_postcode){
 
 function getAllCrime() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[0]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[0]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -295,7 +294,7 @@ function getAllCrime() {
 //=========================================================================================================
 
 function getPoliceApiDate() {
-    let policeDateURL = `https://data.police.uk/api/crime-last-updated`;
+    let policeDateURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crime-last-updated`;
     
     let dateForWhichPoliceApiSearchResultsApply;
     
@@ -351,7 +350,7 @@ function getPoliceApiDate() {
 
 function getAntiSocialBehaviour() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[1]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[1]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -385,7 +384,7 @@ function getAntiSocialBehaviour() {
 
 function getBicycleTheft() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[2]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[2]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -419,7 +418,7 @@ function getBicycleTheft() {
 
 function getBurglary() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[3]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[3]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -453,7 +452,7 @@ function getBurglary() {
 
 function getCriminalDamageArson() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[4]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[4]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -487,7 +486,7 @@ function getCriminalDamageArson() {
 
 function getDrugs() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[5]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[5]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -520,7 +519,7 @@ function getDrugs() {
 
 function getOtherTheft() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[6]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[6]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -554,7 +553,7 @@ function getOtherTheft() {
 
 function getPossessionOfWeapons() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[7]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[7]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -589,7 +588,7 @@ function getPossessionOfWeapons() {
 
 function getPublicOrder() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[8]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[8]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -623,7 +622,7 @@ function getPublicOrder() {
 
 function getRobbery() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[9]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[9]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -657,7 +656,7 @@ function getRobbery() {
 
 function getShoplifting() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[10]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[10]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -686,12 +685,11 @@ function getShoplifting() {
 //=========================================================================================================
 // getTheftFromThePerson()
 // getTheftFromThePerson() takes latitude and longitude as input and retrieves relevant crime data
-//       NEED TO COME BACK AND CHECK THIS AGAIN, specifically: Access to fetch at 'https://data.police.uk/api/crimes-street/theft-from-the-person?lat=51.524816&lng=0.021286' from origin 'http://127.0.0.1:5500' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
 //=========================================================================================================
 
 function getTheftFromThePerson() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[11]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[11]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -720,12 +718,12 @@ function getTheftFromThePerson() {
 //=========================================================================================================
 // getVehicleCrime()
 // getVehicleCrime() takes latitude and longitude as input and retrieves relevant crime data
-// NEED TO COME BACK AND CHECK THIS AGAIN, similar issue to previous one
+// 
 //=========================================================================================================
 
 function getVehicleCrime() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[12]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[12]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -755,12 +753,12 @@ function getVehicleCrime() {
 //=========================================================================================================
 // getViolentCrime()
 // getViolentCrime() takes latitude and longitude as input and retrieves relevant crime data
-// NEED TO COME BACK AND CHECK THIS AGAIN, similar issue to previous one
+// 
 //=========================================================================================================
 
 function getViolentCrime() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[13]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[13]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -789,12 +787,12 @@ function getViolentCrime() {
 //=========================================================================================================
 // getOtherCrime()
 // getOtherCrime() takes latitude and longitude as input and retrieves relevant crime data
-// NEED TO COME BACK AND CHECK THIS AGAIN, similar issue to previous one
+// 
 //=========================================================================================================
 
 function getOtherCrime() {
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategories[14]}?lat=${userLat}&lng=${userLong}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategories[14]}?lat=${userLat}&lng=${userLong}`;
 
     const policePromise = fetch(policeURL);
 
@@ -810,6 +808,7 @@ function getOtherCrime() {
             console.log(body.length);
             
             otherCrimeTotal = body.length;
+            
             
         }
     )
@@ -900,43 +899,4 @@ function hideFilteredCategories(value, index) {
     }
 
 }
-
-/*
-function initMap() {
-
-
-    // The location of the user input by lat & long
-    const usersChosenLocationCoordinates = {lat: userLat, lng: userLong}
-    // The map, centered at the user's chosen location
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 13.53,
-        center: usersChosenLocationCoordinates,
-      });
-      // The marker, positioned at the user's chosen location
-      const marker = new google.maps.Marker({
-        position: usersChosenLocationCoordinates,
-        map: map,
-      });
-*/
-
-      /*a coloured circle of a 1 mile radius around the user's chosen location.
-      right now it's red but later we can add some if statements to make it amber or green
-      based on the level of crime
-      */
-/*
-      const cityCircle = new google.maps.Circle({
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-        map,
-        center: usersChosenLocationCoordinates,
-        radius: 1609.34,
-      });  
-
-}
-
-window.initMap = initMap;
-*/
 
