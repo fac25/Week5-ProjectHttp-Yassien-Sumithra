@@ -880,23 +880,23 @@ function fillInTable() {
   
 const secondForm = document.querySelector(".userChosenCategories");
 let checkboxArray = document.querySelectorAll("[name=crimeCategory]");
+let noneCheckbox = document.querySelectorAll("[name=noneAll]")[0];
 
 secondForm.addEventListener("submit", (event) => {
 
     event.preventDefault();
-
-    fillInTable();
     
+    fillInTable();
     checkboxArray.forEach(hideFilteredCategories);
-
+    
 
 });
 
 function hideFilteredCategories(value, index) {
-    if(value.checked == true) {
+    if (noneCheckbox.checked == true) {}
+    else if (value.checked == true) {
         document.querySelectorAll(".cat")[index].style.display = "none";
         document.querySelectorAll(".catValue")[index].style.display = "none";
     }
 
 }
-
