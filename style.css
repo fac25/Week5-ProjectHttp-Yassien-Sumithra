@@ -84,6 +84,13 @@ tr:nth-child(even) {
     background-color: var(--alabaster);
 }
 
+.checkboxes input{
+    margin: 0px 0px 0px 0px;
+}
+  
+.checkboxes label{
+    margin: 0px 20px 0px 3px;
+}
 /*=======================================================================================*/
 /*                                      Header                                           */
 /*=======================================================================================*/
@@ -238,18 +245,6 @@ tr:nth-child(even) {
 #filterButton {
     background-color: var(--picton-blue);
     margin-top: 0.5rem;
-}
-
-/* Remove the border from the fieldset */
-
-fieldset {
-    border: none;
-}
-
-/* Make the legend bigger*/
-
-legend {
-    font-size: 1.12rem;
 }
 
 /*=======================================================================================*/
