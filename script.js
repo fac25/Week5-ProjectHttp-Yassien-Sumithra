@@ -21,7 +21,7 @@ const crimeCategoryObj_G = {
     'shoplifting' : 0,
     'theft-from-the-person' : 0,
     'vehicle-crime' : 0,
-    'violent crime' : 0,
+    'violent-crime' : 0,
     'other-crime' : 0
 }; 
 
