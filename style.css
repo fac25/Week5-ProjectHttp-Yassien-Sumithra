@@ -195,7 +195,7 @@ tr:nth-child(even) {
 
 .tab button{
     border: none;
-    outline: none;
+    /*outline: none;*/
     padding: 14px 16px;
     font-size: 1.1rem;
     background-color: inherit;
