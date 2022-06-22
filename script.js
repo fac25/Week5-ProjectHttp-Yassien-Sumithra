@@ -243,7 +243,7 @@ function getNeighbour(a_postcode){
 
 function getPoliceApiDate() {
 
-    let policeDateURL = `https://data.police.uk/api/crime-last-updated`;
+    let policeDateURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crime-last-updated`;
     
     let dateForWhichPoliceApiSearchResultsApply;
     
@@ -296,7 +296,7 @@ function getCrimeData(a_latitude, a_longitude) {
 
     let crimeCategory = 'all-crime';
 
-    let policeURL = `https://data.police.uk/api/crimes-street/${crimeCategory}?lat=${a_latitude}&lng=${a_longitude}`;
+    let policeURL = `https://guarded-sierra-03090.herokuapp.com/https://data.police.uk/api/crimes-street/${crimeCategory}?lat=${a_latitude}&lng=${a_longitude}`;
 
     fetch(policeURL)
     .then(
