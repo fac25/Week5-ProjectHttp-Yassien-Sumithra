@@ -257,6 +257,14 @@ tr:nth-child(even) {
     .header-nav a{
         padding: 10px;
     }
-  
+    
+    .bg-img {
+        min-height: 20rem;
+    }
 
+    .form-postcode-search {
+        margin-top: 1.5rem;
+        padding: 1rem;
+    }
+  
 }
