@@ -84,6 +84,13 @@ tr:nth-child(even) {
     background-color: var(--alabaster);
 }
 
+.checkboxes input{
+    margin: 0px 0px 0px 0px;
+}
+  
+.checkboxes label{
+    margin: 0px 20px 0px 3px;
+}
 /*=======================================================================================*/
 /*                                      Header                                           */
 /*=======================================================================================*/
@@ -240,18 +247,6 @@ tr:nth-child(even) {
     margin-top: 0.5rem;
 }
 
-/* Remove the border from the fieldset */
-
-fieldset {
-    border: none;
-}
-
-/* Make the legend bigger*/
-
-legend {
-    font-size: 1.12rem;
-}
-
 /*=======================================================================================*/
 /*                                   Media queries                                       */
 /*=======================================================================================*/
@@ -262,6 +257,14 @@ legend {
     .header-nav a{
         padding: 10px;
     }
-  
+    
+    .bg-img {
+        min-height: 20rem;
+    }
 
+    .form-postcode-search {
+        margin-top: 1.5rem;
+        padding: 1rem;
+    }
+  
 }
