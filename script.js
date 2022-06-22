@@ -57,8 +57,11 @@ function startup() {
 function getPostcode(event){
 
     event.preventDefault();
+
+    // Clear out any previous results before new postcode search
+    reset();
         
-    let postcode = document.querySelector("#postcode").value;
+    const postcode = document.querySelector("#postcode").value;
     console.log(postcode); // For testing
 
 
@@ -67,8 +70,8 @@ function getPostcode(event){
     fetch(postCodeURL)
     .then(
         (response) => {
-            if (response.ok === false) {console.log(`Error, response status is ${response.status}`);}
-            else {return response.json();}
+            if (!response.ok) throw new Error(response.status);
+            return response.json();
         }
     )
     .then(
@@ -96,7 +99,15 @@ function getPostcode(event){
             }
     )
     .catch(
-        (error) => {console.log(error);}
+        (error) => {
+            const errOutput = document.querySelector(".error-output");
+            if (error.message === "404") {
+                errOutput.textContent = `⚠️ Couldn't find "${postcode}"`;
+            } else {
+                console.log(error);
+                errOutput.textContent = "⚠️ Something went wrong";
+            }
+        }
     );
 }
 
@@ -155,7 +166,7 @@ function displayTab(e, tabName) {
 }
 
 //=========================================================================================================
-// getOutputContainer()
+// Helper functions
 // 
 //
 //=========================================================================================================
@@ -163,6 +174,12 @@ function displayTab(e, tabName) {
 function getOutputContainer(){
     document.querySelector(".output").style.display = "block";
 }
+
+function reset(){
+    document.querySelector(".output").style.display = "none";
+    document.querySelector(".error-output").innerHTML="";
+}
+
 
 //=========================================================================================================
 // getSummary()
