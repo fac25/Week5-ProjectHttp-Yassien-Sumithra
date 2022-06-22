@@ -7,8 +7,8 @@
     --alabaster:#EFEFEF;
     --rhino:#2f3f5e;
     --dove-gray: #706c6c;
-    --lochmara: #078cc4;
-    --picton-blue:#3fbaef;
+    --lochmara: #483D8B ; /*#078cc4;*/
+    --picton-blue: purple; /*#3fbaef;*/
     --white: #ffffff;
     --alto:#dbdbdb;
     --dull-white: #fafafa;
@@ -173,7 +173,7 @@ tr:nth-child(even) {
     width: 100px;
     text-transform: uppercase;  
     color: var(--white);
-    background-color: var(--picton-blue);
+    background-color: var(--lochmara);
 }
 
 /*=======================================================================================*/
@@ -243,7 +243,7 @@ tr:nth-child(even) {
 /* Change color of the filter button it is visible and give it a margin */
 
 #filterButton {
-    background-color: var(--picton-blue);
+    background-color: var(--lochmara);
     margin-top: 0.5rem;
 }
 
