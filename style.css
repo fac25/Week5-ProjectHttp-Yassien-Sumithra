@@ -127,7 +127,7 @@ tr:nth-child(even) {
 /*=======================================================================================*/
 
 .bg-img {
-    background-image: url("Images/img_form_background.jpg");
+    background-image: url("Images/img_form_background.webp");
     min-height: 20rem;
     /* Center and scale the image nicely */
     background-position: center;
