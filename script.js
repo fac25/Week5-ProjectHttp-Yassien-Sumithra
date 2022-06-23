@@ -29,6 +29,8 @@ const crimeCategoryObj_G = {
 const months = [`January`, `February`, `March`, `April`, `May`, `June`, `July`,
 `August`, `September`, `October`, `November`, `December`];
 
+// Map container to display map 
+var mapContiner_G = null;
 
 
 //=========================================================================================================
@@ -119,20 +121,25 @@ function getPostcode(event){
 
 function getMap(a_latitude, a_longitude){
 
-    var map = L.map('map').setView([a_latitude, a_longitude], 13);
+    // Clear the map contianer before every load
+    if (mapContiner_G !== undefined && mapContiner_G !== null) {
+        mapContiner_G.remove(); 
+    }
+
+    mapContiner_G = L.map('map').setView([a_latitude, a_longitude], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '© OpenStreetMap'
-    }).addTo(map);
+    }).addTo(mapContiner_G);
 
-    var marker = L.marker([a_latitude, a_longitude]).addTo(map);
+    var marker = L.marker([a_latitude, a_longitude]).addTo(mapContiner_G);
 
     var circle = L.circle([a_latitude, a_longitude], {
         color: 'red',
         fillColor: '#ff0000',
         fillOpacity: 0,
         radius: 1609.34
-    }).addTo(map);
+    }).addTo(mapContiner_G);
 
    // marker.bindPopup().openPopup();
 
@@ -192,6 +199,9 @@ function getSummary(data){
     let summaryTable = document.querySelector("#summary-table");
     let tbody = summaryTable.querySelector("tbody");
 
+    // Clear the table before making new one
+    tbody.innerHTML = " ";
+
     appendRow(tbody, "Local Authority", data.result.admin_district);
     appendRow(tbody, "Ward", data.result.admin_ward);
     appendRow(tbody, "Constituency", data.result.parliamentary_constituency);
@@ -240,6 +250,9 @@ function getNeighbour(a_postcode){
     .then((data)=>{
         let neighbourTable = document.querySelector("#neighbour-table");
         let tbody = neighbourTable.querySelector("tbody");
+
+        // Clear the table before making new one
+        tbody.innerHTML = " ";
 
         const resultArr = data.result;
     
